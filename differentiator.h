@@ -22,25 +22,25 @@ typedef enum Meaning_t {
     DIVISION             = 14,
     POWER                = 15,
     LOGARITHM            = 16,
-    END_BIN_OPERATIONS = 29,
+    END_BIN_OPERATIONS   = 29,
     //UNO
-    START_UN_OPERATIONS = 30,
-    SIN = 31,
-    COS = 32,
-    TAN = 33,
-    COT = 34,
-    EXPONENTIAL       = 35,
-    NATURAL_LOGARITHM = 36,
-    DECIMAL_LOGARITHM = 37,
-    SQUARE_ROOT       = 38,
-    ARCSIN            = 39,
-    ARCCOS            = 40,
-    ARCTAN            = 41,
-    ARCCOT            = 42,
-    SIN_HYPERBOLIC    = 43,
-    COS_HYPERBOLIC    = 44,
-    TAN_HYPERBOLIC    = 45,
-    END_UN_OPERATIONS = 49
+    START_UN_OPERATIONS  = 30,
+    SIN                  = 31,
+    COS                  = 32,
+    TAN                  = 33,
+    COT                  = 34,
+    EXPONENTIAL          = 35,
+    NATURAL_LOGARITHM    = 36,
+    DECIMAL_LOGARITHM    = 37,
+    SQUARE_ROOT          = 38,
+    ARCSIN               = 39,
+    ARCCOS               = 40,
+    ARCTAN               = 41,
+    ARCCOT               = 42,
+    SIN_HYPERBOLIC       = 43,
+    COS_HYPERBOLIC       = 44,
+    TAN_HYPERBOLIC       = 45,
+    END_UN_OPERATIONS    = 49
 } Meaning_t;
 
 const int max_name_length = 30;
@@ -97,6 +97,10 @@ static char Meaning_strings[][max_name_length] {
     "END_UN_OPERATIONS",//49
     ""//50
 };
+
+
+
+
 
 
 typedef struct Differentiator_t {

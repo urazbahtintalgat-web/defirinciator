@@ -80,6 +80,28 @@ Differentiator_t * DifferentiatorCopy(Differentiator_t * dif, Differentiator_t *
     if (dif->right != NULL) copy_dif->right = DifferentiatorCopy(dif->right, copy_dif);
     return copy_dif;
 }
+/**
+ * @brief Эта функция создает вершину и устанавливает в ней ту или иную константу
+ * 
+ * @param parent указатель родителя листа в который надо поставить константу
+ * @param value константа которую надо поставить в этот лист
+ * 
+ * @return созданную динамически вершину с константой внутри
+ */
+Differentiator_t * DifferentiatorNodeInitConst(Differentiator_t * parent, double value) {
+    if (parent == NULL) {
+        printf("ERROR: differentiator parent NULL pointer %s:%d\n", __FILE__, __LINE__);
+        return NULL;
+    }
+    Differentiator_t * dif = DifferentiatorInit();
+    if (dif == NULL) {
+        return NULL;
+    }
+    dif->parent = parent;
+    dif->meaning = VALUE;
+    dif->value.number = value;
+    return dif;
+}
 
 void EnterMeaning(Differentiator_t * dif, Meaning_t meaning) {
     dif->meaning = meaning;

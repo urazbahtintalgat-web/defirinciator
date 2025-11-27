@@ -13,6 +13,8 @@ Differentiator_t * DifferentiatorNodeInit(Differentiator_t * parent);
 
 Differentiator_t * DifferentiatorCopy(Differentiator_t * dif, Differentiator_t * copy_parent);
 
+Differentiator_t * DifferentiatorNodeInitConst(Differentiator_t * parent, double value);
+
 void EnterMeaning(Differentiator_t * dif, Meaning_t meaning);
 void EnterValueNumber(Differentiator_t * dif, double value);
 void EnterValueOperation(Differentiator_t * dif, Meaning_t operation);
