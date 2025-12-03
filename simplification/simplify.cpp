@@ -8,8 +8,6 @@
 #include <stdlib.h>
 #include <math.h>
 
-static const double EPSILON = 1e-9;
-
 Differentiator_t * SimplifyADDITION(Differentiator_t * dif) {
     if (dif->left->meaning == VALUE && DoubleCompare(dif->left->value.number, 0) == 0) {
         Differentiator_t * new_dif = dif->right;

@@ -40,7 +40,7 @@ void PrintNode(FILE * dot_file, Differentiator_t * dif) {
     } else if (dif->meaning == VALUE) {
         fprintf(dot_file, "<value> value = %lf | ", dif->value.number);
     }
-    fprintf(dot_file, "{<left> left = Node_%p | <right> right = Node_%p}}\"]\n", dif->left, dif->right);
+    fprintf(dot_file, "{<left> left = Node_%p | <right> right = Node_%p}}\"]\n", (void *) dif->left, (void *) dif->right);
 
     free(color);
     return;

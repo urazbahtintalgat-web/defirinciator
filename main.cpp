@@ -13,6 +13,7 @@
 #include "./read_data_differentiator/read_data.h"
 #include "./Letex_dump/make_Latex.h"
 #include "./Letex_dump/Latex_derivatives.h"
+#include "./read_data_differentiator/infix_read.h"
 
 inline void SetParents(Differentiator_t * dif, Differentiator_t * parent) {
     if (dif == NULL) return;
@@ -88,27 +89,32 @@ int main() {
 //
     //
 //
-    Differentiator_t * dif;
-    dif = DifferentiatorInit();
-    dif->meaning = OPERATION;
-    dif->value.operation = POWER;
-    dif->left = DifferentiatorNodeInit(dif);
-    dif->left->meaning = VARIABLE;
-    dif->left->value.variable = 'x';
-    dif->right = DifferentiatorNodeInit(dif);
-    dif->right->meaning = VARIABLE;
-    dif->right->value.variable = 'x';
-    //read_data_differentiator(&dif, fopen("t.txt", "r"));
-    Differentiator_t * new_dif = TakeDifferecial(dif, NULL, 'x');
+    // Differentiator_t * dif;
+    // dif = DifferentiatorInit();
+    // dif->meaning = OPERATION;
+    // dif->value.operation = POWER;
+    // dif->left = DifferentiatorNodeInit(dif);
+    // dif->left->meaning = VARIABLE;
+    // dif->left->value.variable = 'x';
+    // dif->right = DifferentiatorNodeInit(dif);
+    // dif->right->meaning = VARIABLE;
+    // dif->right->value.variable = 'x';
+    // Differentiator_t * new_dif = TakeDifferecial(dif, NULL, 'x');
+    char str[] = "1+2*3*sin(0)$";
+    char * s = str;
+    Differentiator_t * dif = G(&s);
+    //Differentiator_t * new_dif = TakeDifferecial(dif, NULL, 'x');
+
+
     char folder[256];
     GenerateFolder(folder, 256);
     
     FILE * HTML_file = CreateHTML(folder);
     FILE * Latex_file = CreateLatex(folder);
     PrintImageLatex(dif, Latex_file, folder);
-    PrintImageLatex(new_dif, Latex_file, folder);
+    //PrintImageLatex(new_dif, Latex_file, folder);
     PrintFormula(dif, Latex_file);
-    PrintFormula(new_dif, Latex_file);
+    //PrintFormula(new_dif, Latex_file);
     FinalizeLatex(Latex_file);
 
     PrintImageHTML(dif, folder, HTML_file);

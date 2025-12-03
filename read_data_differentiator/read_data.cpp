@@ -70,7 +70,7 @@ int read_data_differentiator(Differentiator_t ** dif, FILE * file) {
     *dif = DifferentiatorInit();
     if (*dif == NULL) return 1;
 
-    for (int i = 0; i < sizeof(operation_names)/sizeof(operation_names[0]); i++) {
+    for (unsigned long i = 0; i < sizeof(operation_names)/sizeof(operation_names[0]); i++) {
         if (operation_names[i][0] == '\0') continue;
 
         if (strcmp(string, operation_names[i]) == 0 || strcmp(string, operation_symbols[i]) == 0) {
