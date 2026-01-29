@@ -9,7 +9,7 @@ static const int max_uno_operation_name_length = 30;
 static char uno_operation_names[][max_uno_operation_name_length] {
     "",//0
     "",//1
-    "", //2
+    "",//2
     "",//3
     "",//4
     "",//5

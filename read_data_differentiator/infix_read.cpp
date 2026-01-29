@@ -18,6 +18,7 @@ static inline Differentiator_t * BinFunc(Meaning_t oper, Differentiator_t * left
 
     return new_dif;
 }
+
 static inline Differentiator_t * UnoFunc(Meaning_t oper, Differentiator_t * left) {
     Differentiator_t * new_dif = DifferentiatorInit();
     if (new_dif == NULL) return NULL;
@@ -28,6 +29,7 @@ static inline Differentiator_t * UnoFunc(Meaning_t oper, Differentiator_t * left
 
     return new_dif;
 }
+
 static inline Differentiator_t * SetValue(double value) {
     Differentiator_t * new_dif = DifferentiatorInit();
 
@@ -36,6 +38,7 @@ static inline Differentiator_t * SetValue(double value) {
 
     return new_dif;
 }
+
 static int ReadUnoFunc(char ** s, char * buffer, int buffer_size) {
     buffer_size = buffer_size * 1;
     int i = 0;
@@ -45,6 +48,7 @@ static int ReadUnoFunc(char ** s, char * buffer, int buffer_size) {
     }
     return i;
 }
+
 static Differentiator_t * CheckFunc(char * buffer);
 
 Differentiator_t * G(char ** s);
@@ -56,13 +60,14 @@ Differentiator_t * V(char ** s);
 //Differentiator_t * F(char ** s);
 
 #define SYNAX_ERROR printf("ERROR\n in file %s:%d in func %s\n", __FILE__, __LINE__, __func__)
+
 /*
 diff * G = E'$'
 diff * E = T{[+ -]T}*
 diff * T = P{[* /]P}*
-diff * P = '('E')' | N | V | F
+diff * P = '('E')' | N | V
 diff * N = ['0'-'9']+
-diff * V = ['a'-'z']*
+diff * V = ['a'-'z']* | F
 diff * F = ["sin", "cos",...]'(' E ')'
 */
 

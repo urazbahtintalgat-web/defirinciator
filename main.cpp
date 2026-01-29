@@ -100,10 +100,24 @@ int main() {
     // dif->right->meaning = VARIABLE;
     // dif->right->value.variable = 'x';
     // Differentiator_t * new_dif = TakeDifferecial(dif, NULL, 'x');
-    char str[] = "1+2*3*sin(0)$";
+
+
+
+
+
+    //char str[] = "1+2*3*sin(0)$";
+    char * str = 0;
+    size_t len = 0;
+
+    getline(&str, &len, stdin);
+
+
+
+
+
     char * s = str;
     Differentiator_t * dif = G(&s);
-    //Differentiator_t * new_dif = TakeDifferecial(dif, NULL, 'x');
+    Differentiator_t * new_dif = TakeDifferecial(dif, NULL, 'x');
 
 
     char folder[256];
@@ -112,9 +126,9 @@ int main() {
     FILE * HTML_file = CreateHTML(folder);
     FILE * Latex_file = CreateLatex(folder);
     PrintImageLatex(dif, Latex_file, folder);
-    //PrintImageLatex(new_dif, Latex_file, folder);
+    PrintImageLatex(new_dif, Latex_file, folder);
     PrintFormula(dif, Latex_file);
-    //PrintFormula(new_dif, Latex_file);
+    PrintFormula(new_dif, Latex_file);
     FinalizeLatex(Latex_file);
 
     PrintImageHTML(dif, folder, HTML_file);

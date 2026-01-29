@@ -99,10 +99,6 @@ static char Meaning_strings[][max_name_length] {
 };
 
 
-
-
-
-
 typedef struct Differentiator_t {
     Meaning_t meaning;
     union value {
